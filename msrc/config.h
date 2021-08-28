@@ -10,6 +10,9 @@
 // Select RX protocol
 #define RX_PROTOCOL RX_SMARTPORT // RX_SMARTPORT, RX_XBUS, RX_SRXL, RX_FRSKY, RX_IBUS
 
+// Set Smartport updat rate
+#define SMARTPORT_CYCLE 100// Smartport Cycle every mS 
+
 // Select SRLX valriant (only for SRXL)
 #define SRXL_VARIANT SRXL_V5 // Only implemented SRXL_V5 (SPEKTRUM)
 
@@ -20,7 +23,7 @@
 #define PWMOUT_DUTY 0.5 // 0.5 = 50%
 
 // GPS serial
-#define GPS_BAUD_RATE 9600
+#define GPS_BAUD_RATE 38400
 
 // HW signature
 #define ESC_SIGNATURE
@@ -105,7 +108,7 @@
 #endif
 
 // Lua config (only opentx)
-#define CONFIG_LUA // Comment if not using lua script for configuration (only smartport)
+//#define CONFIG_LUA // Comment if not using lua script for configuration (only smartport)
 
 // Force eeprom write
 //#define FORCE_EEPROM_WRITE // Uncomment to force write eeprom as defined in config.h. Useful when using lua and eeprom is messed up. Reflash againg with line commented or config will be reset at power up 
@@ -141,7 +144,7 @@
 // Select sensors
 #define CONFIG_ESC_PROTOCOL PROTOCOL_NONE // PROTOCOL_NONE, PROTOCOL_HW_V3, PROTOCOL_HW_V4_LV, PROTOCOL_HW_V4_HV, PROTOCOL_HW_V5_LV, PROTOCOL_HW_V5_HV, PROTOCOL_PWM, PROTOCOL_CASTLE, PROTOCOL_KONTRONIK
 #define CONFIG_AIRSPEED false
-#define CONFIG_GPS false
+#define CONFIG_GPS true
 #define CONFIG_VOLTAGE1 false
 #define CONFIG_VOLTAGE2 false
 #define CONFIG_CURRENT false

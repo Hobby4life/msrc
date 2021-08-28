@@ -323,11 +323,11 @@ void Smartport::update()
             {
                 static Sensor *spSensorP = sensorP; // loop sensors until correct timestamp or 1 sensors cycle
                 Sensor *initialSensorP = spSensorP;
-                while (((uint16_t)((uint16_t)millis() - spSensorP->timestamp()) <= (uint16_t)spSensorP->refresh() * 100) && spSensorP->nextP != initialSensorP)
+                while (((uint16_t)((uint16_t)millis() - spSensorP->timestamp()) <= (uint16_t)spSensorP->refresh() * (SMARTPORT_CYCLE/10)) && spSensorP->nextP != initialSensorP)
                 {
                     spSensorP = spSensorP->nextP;
                 }
-                if ((uint16_t)((uint16_t)millis() - spSensorP->timestamp()) >= (uint16_t)spSensorP->refresh() * 100)
+                if ((uint16_t)((uint16_t)millis() - spSensorP->timestamp()) >= (uint16_t)spSensorP->refresh() * (SMARTPORT_CYCLE/10))
                 {
                     sendData(spSensorP->frameId(), spSensorP->dataId(), spSensorP->valueFormatted());
 #ifdef DEBUG
